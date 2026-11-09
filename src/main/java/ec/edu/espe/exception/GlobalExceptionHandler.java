@@ -14,7 +14,8 @@ public class GlobalExceptionHandler {
 
     // Maneja la excepcion cuando un producto NO es encontrado (HTTP 404)
     @ExceptionHandler(ProductoNoEncontradoException.class)
-    public ResponseEntity> manejarProductoNoEncontrado(ProductoNoEncontradoException ex) {
+    public ResponseEntity
+    manejarProductoNoEncontrado(ProductoNoEncontradoException ex) {
         Map<String, Object> respuestaError = new HashMap<>();
         respuestaError.put("timestamp", LocalDateTime.now());
         respuestaError.put("codigoEstado", HttpStatus.NOT_FOUND.value());
@@ -26,7 +27,8 @@ public class GlobalExceptionHandler {
 
     // Maneja la excepcion cuando un producto es INVALIDO (precio <= 0 o stock < 0) (HTTP 400)
     @ExceptionHandler(ProductoInvalidoException.class)
-    public ResponseEntity> manejarProductoInvalido(ProductoInvalidoException ex) {
+    public ResponseEntity
+    manejarProductoInvalido(ProductoInvalidoException ex) {
         Map<String, Object> respuestaError = new HashMap<>();
         respuestaError.put("timestamp", LocalDateTime.now());
         respuestaError.put("codigoEstado", HttpStatus.BAD_REQUEST.value());
